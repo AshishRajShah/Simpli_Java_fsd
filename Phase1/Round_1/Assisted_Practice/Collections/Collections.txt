@@ -1,0 +1,313 @@
+/*     ##################################      Collections Framework...     #############################
+
+Collection(I) : - When Group of elements/objects represent as a single entity... We need it because it dosen't bound 
+                    himself in limit size..and it can also store heterogeneous data like list in python..
+                    It represents a set of classes and interfaces.     
+                    
+                    purpose :- to acheive the data structure..
+
+                  Array                                                                Collection
+        i.  Fixed Size(Not growable in nature..)                     i.  Growable in nature...
+                 (obj a[] = new obj[5];)                                    Collection arraylist = new arraylist();
+
+        ii. Homogeneous (similar dataType ele.)                     ii. Heterogeneous..
+
+       iii. Readymade method in array like sort,search etc.        iii. It is implemented underlaying Data Structure.. 
+                (to perform any operation we have to                        (Readymade method's are available...)
+                    write the structure of code....)
+
+
+        Method in Collection.............
+              i. add(object obj)            ---- It is used to insert an element in this collection...
+             ii. addAll(collection c)       ---- It is used to insert the specified collection elements in the invoking collection.
+            iii. remove(object obj)         ---- It is used to delete an element from the collection.
+             iv. removeAll(collection c)    ---- It is used to remove all the elements from the list.
+              v. retainAll(collection c)    ---- It is used to retain all the elements in the list that are present in the specified
+                                                 collection.
+             vi. clear()                    ---- It removes the total number of elements from the collection.
+            vii. isEmpty()                  ---- It checks if collection is empty.
+           viii. size()                     ---- It returns the total number of elements in the collection.
+             ix. contains(object obj)       ---- It is used to search an element.
+              x. containsAll(collection c)  ---- 
+             xi. toArray(Collection c)      ---- It Convert Collection into Array format..
+
+Collections :- It is a Predefined Class from java.utils pkg. It contains certain method and these method is used to perform
+                operation on Collection(I) object.
+                        eg: Collections.sort(arr);      //arr - arraylist from Collection..
+                            Collections.shuffle(arr);
+                            Collections.reverse(arr);
+                            Collections.sort(arr,Collections.reverseOrder());
+
+
+                        I - interface       C - Class........
+                        ###############      Collection(Parent Interface)      #################
+                          /                                |                                  \
+                        /                                  |                                   \
+                      /                                    |                                    \
+            I. List(I)                                 II. Set(I)                               III. Queue(I)
+    Note:- 
+       -- Insertion order preserved.              -- Insertion order doesn't Preserved.   -- It basically implemented FIFO
+           (put the value as they r assigned.)                                                Concept. Prior processing..
+       -- Duplicate also allowed...               -- Duplicate values not allowed...
+        
+            -- Arraylist..(c)                                  -- Hashset..                         -- PriorityQueue(c)...
+            -- Linked list..(c)                                -- Linked hashset..                  -- LinkedList(c)..
+            -- Vector \                                        -- SortedSet(I)                      -- Dequeue(I)                    
+                       --   legacy classes                       -TreeSet(c)                        -- BlockingQueue(I)
+            -- Stack  /                                                                             -- BlockingDequeue(I)
+        Method :-                                 Method:-
+          add(index,obj)                                add(obj)
+          addAll(index,Collection )                     addAll(Collection)
+          remove(index,object)                          remove(obj)
+          get(index)-> retrieve obj from the list       retainAll(coll)
+          set(index, Obj) -> replace the obj to         containAll(grp of elem)
+                             new obj.                   removeAll(coll)
+          isEmpty()                                     isEmpty()
+
+                            --------  Not available in Collection(Interface)      ---------------------
+            I. Map(I)
+    Note :- 
+            It is used to data store in key & value pair.. and key should be unique but value can be duplicate..
+                Each key and value r obj. Map(I) is implemented by HashMap & HashTable classes..
+                        --  HashMap..(c)
+                        --  HashTable..(c)
+                        --  LinkedHashMap
+        
+                         ------------- @@@ Iterator Interface  @@@  ---------------------
+    Note :-        
+            --  The Iterable interface is the root interface for all the collection classes. The Collection interface 
+                extends the Iterable interface and therefore all the subclasses of Collection interface also implement 
+                the Iterable interface.
+                    Syntax: - Iterator<T> iterator()  
+                        -- hasNext()  -- It returns true if the iterator has more elements otherwise it returns false.
+                        -- next()     -- It returns the element and moves the cursor pointer to the next element.     
+                        -- remove()   -- It returns the element and moves the cursor pointer to the next element.
+
+
+####################################            List            ##################################
+
+// ---------------------------         ArrayList(java.util)        -------------------------------
+               
+    /* 
+    Note :-     In Arraylist all elements preserved in a consequetive manner.. 
+        Method : -
+                add()                            add(index,Obj)                     addAll(Collection)
+                remove(obj)                      remove(index)                      removeAll(Collection)
+                get(index),                      set(index,newele.) -> return rem element 
+                isEmpty() -> t/f                    contains(obj) -> t/f
+                addAll(col) -> add group of ele. in a single list 
+                removeAll(col)
+
+        syntax:-
+                ArrayList ar = new ArrayList();     --- by default it allow us to store 10 obj/elements..
+                                            (3);        -- if i put 3 then it will store only 3 obj.
+                                    ________________________________________
+                                   | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+                                   -----------------------------------------
+                    whenever it reaches his max size/fill its size.. 
+                                suppose we have to insert 1 more element.. then it will not add the element
+                                  directly in  previous array.. It will create a new obj and add new element
+                                  in new object..           
+                             _____________________________________________
+                            | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+                            ----------------------------------------------                          
+
+    */
+
+ // --------------------------         LinkedList(java.util)         ------------------------------------
+    /* 
+    Note:  It is a class which is implemented list Interface as well as Queue Interface..  It will be used most 
+            of  the time to developed the stack(LIFO) & queue.. 
+            properties:-
+                    -- Allow duplicate value..
+                    -- Insertion preserved but random place. --> but these element internally linked with the addresses
+                                                            of those elements.. and every node has previous & next node 
+                                                            addresses..So, it is by default follow "Doubly Linked "
+                                                            Data Structure..
+                    -- null is also acceptable..
+
+                Best Mode for operation.. (When we have more no. of operation)..
+
+                    ArrayList  --  Retrive   (bcz it can perform index based operation. so data can be easily
+                                        retrive from get() in arraylist..)
+                    LinkedList -- Insertion / Deletion  (Bcz in array to insert/del value we need to do 
+                                        shifting operation which will take more time & reduce performance..)  
+                                -- In this every element/obj is called as a node.. and every node is divided into
+            three parts..   ______________________     _______________________      _____________________
+                            | null | x | ad_of_y_ |    | ad_of_y | y | ad_of_z|     | ad_of_Z | Z | null |
+                            ----------------------     ------------------------     ---------------------- 
+                                    here ad -> address...
+                    
+        Method :- 
+            add()                               add(index,Obj)                          addAll(Collection)
+            remove(obj/element) -> string       remove(index)                           removeAll(Collection)
+            get(index),                         set(index,newele.) -> return remove element 
+            addFirst(obj)                       addlast(obj)                            ListIterator()
+            removeFirst()                       removeLast()                            -- by this we can iterate forward
+            getFirst()                          getLast()                                 or backward both dir. but,to go
+            size()      --- inherited from list --- list inherited from Collection         backward 1st need to go frwd..
+    */                              
+
+#####################################            Set            ####################################
+
+// ------------------------         Hashset(java.util)         ------------------------------------
+    /* 
+    Note :-    If you have more no. of searching then go for it....
+                        It doesn't has own method... just use what it inherited from set..
+                                                                    --    No index Concept..
+            Properties :-       i. Duplicate element not allowed..
+                               ii. Insertion order not preserved...
+                              iii. It insert the element by using the concept HashCode
+                                                    -> that's  why searching the ele. is very fast in HashSet..
+                               iv. Heterogenous data allow...
+                                v. HashTable Concept Follow..
+
+            syntax:- 
+                HashSet hs = new HashSet();             --- by default it allow us to store 16 obj/elements..
+                HashSet<Integer> hs = new Hashset<>();
+                                                        --- Load factor/fill ratio -- 0.75%;
+                             ______________________________________________________________________
+                            | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 |
+                            -----------------------------------------------------------------------
+                     load factor of 16 = 16*0.75% => 12
+                            as soon as it reaches his load factor (0.75% or 75% =>12 ) of default size then it
+                            create a new object..and the previou object collected by garbage collector...
+                                so the new size will become 12+16 = 28.. (and this process will carry on further..)
+                    
+                    now hs obj refer to this new object..                       (16+12)
+                             ___________________________________________________________________________
+                            | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |..28
+                            ----------------------------------------------------------------------------
+            eg:-
+                Hashset hs = new Hashset(100);      
+                or,
+                Hashset hs = new Hashset(100,0.75);     --- we can define load factor..
+
+        Method :-
+                add(obj)                --> it doesn't has index concept..so
+                                                ---- add(index,obj)  --can't use
+                addAll(Collection)
+                remove(obj)
+                removeAll(Collection)
+                contains(obj)                       containsAll(group of elements)
+                isEmpty()
+            
+            Note:-  We can't Sort the HashSet..bcz it doesn't has Index Concept..
+                            :--   To sort we have to convert it first of all in ArrayList and
+                                    then we can sort with the help Collections Class..
+    */
+
+
+// --------------------------        LinkedHashset(java.util)         ------------------------------
+    /*
+    Note :- 
+            Properties :-
+                          i. Duplicate not allowed..
+                         ii. Insertion order is preserved....
+                        iii. Hashtable + Linked list concept follow..
+                        Hashtable :- array of linked list and each linked list called as bucket..
+            syntax:- 
+                LinkedHashSet hs = new LinkedHashSet();        --- by default it allow us to store 16 obj/elements..
+                LinkedHashSet<Integer> hs = new LinkHashset<>();
+                                                                --- Load factor/fill ratio -- 0.75 (represent 1%)
+    
+        Method :-
+                Same as HashSet
+    */
+
+#####################################            Queue            ####################################
+
+ // -----------------------------         PriorityQueue(java.util)       -------------------------------
+    /* 
+    Note:- It follow FIFO(First In First Out) Concept..
+            Properties :-
+                          i. Duplicate Value allow..
+                         ii. Insertion order preserved..
+                        iii. Heterogeneous value not allowed 
+                                            -- and by this cause only it is different from linked list.. 
+        Method :- only 6(also available for linkedList)
+                                        ----------- both add element in last bcz it's a queue..
+              i. add(obj)   -- if addition is success then it returns true & if fail then returns Exception..
+             ii. offer(obj) -- if addition is success then it returns true & if fail then returns Null..
+                                                                        -------------------------------
+                                        ----------- both returns head element from the queue..
+            iii. element()  -- if queue is empty it will throw Exception..
+                                    Exception : NoSuchElementException
+             iv. peek()     -- if queue is empty it will return null..
+                                                                         -------------------------------
+                        ---------- both returns the head ele. and after return it will del the element from the queue...
+              v. remove()   --  if queue is empty it will throw Exception..
+             vi. poll()     --  if queue is empty it will return null..
+    
+    */
+
+#####################################            Map            ######################################
+
+// -----------------------------        HashMap(java.util)         ------------------------------------ 
+    /* 
+    Note :-     It Uses underlaying Data Structure - HashTable..
+                                                                                     ___________________
+        Properties :-                                                               |  key   | value   |
+                  i.  Duplicate key not allowed but value can be..                  |------------------|
+                 ii.  Insertion Order not Preserved..                               |___101__ |___"A"_ |-- 1 entry
+                iii.  Only 1 null key allowed but null values can be allow..        |___102__ |___"B"_ |     (pair k & v) 
+                                                                                    |___103__ |___"C"__|   
+                                                                                    |___104___|__"A"___|
+                    -- initial capacity 16,load factor 0.75
+            Syntax :-
+                    HashMap<Key_Type,Value_Type> hm = new HashMAp<>();
+        
+            --  This particular entry we can represent by using 1 more Interface that is Entry(I).
+                        interface HashMap
+                        {
+                            interface Entry
+                            {
+                                -- it's method use only on the entry obj from the HashMap..
+                                Method :-
+                                 entry ob.getkey()        --   return key...
+                                          getValue()      --   return value...
+                                          setValue(obj)   --   replace exist value with new one/update
+
+                            }
+                        }
+                    A Entry is a sub-interface of  a HashMap...
+
+        Method :-
+            put(key,value)        --   It is used to add new entry..   
+            putAll(Map m)         --   It can add multiple key,value pair/ multiple hashmap collection..
+            get(key)              --   Return the value of key
+            remove(key)           --   Remove the value along with key.   
+            containsKey(key)      --   Return boolean value if key is present. 
+            containsValue(value)  --   Return boolean value if value is present.  
+            isEmpty()             --   Check HashMap is empty or not
+            size()                --   Return the no. of key-value pair in HashMap
+            ---------------
+            keySet()              --    All keys fetch from HashMap     -> set is in keyset show no duplicacy..
+            values()              --    All values fetch from HashMap
+            entrySet              --    All Key-value fetch just like items in python..
+
+    */  
+
+// -----------------------------        HashTable(java.util)         ------------------------------------ 
+    /* 
+    Note :-
+        
+            Properties :- 
+                        i. Data store in key, value pair..
+                        ii. Underlaying Data Structure  -- hashtable
+                                    internally  it follow hashcode to store the data...
+
+                    HashMap                                                             Hashtable
+                 i.  non -synchronised                                       i. synchronized (thread-safe)
+                                                                                    -- at a time only 1 thread allowed..
+                ii.  Performance is fast..                                  ii. performance is poor than hashMap..
+                iii. Null can be accept as a key                            iii. Null can't accepted.. 
+                            but in multiple as value
+                Map m = Collections.synchronizedMap(hashMap);   
+                        -- by doing this we can synchronized HashMap..
+
+            Syntax :- 
+                HashTable<Integer,String> hs = new HashTable<>();   // Capacity is 11, load factor  0.75  --homogeneous
+                HashTable t =new Hashtable(Initial_capacity , load_Factor)          --heterogeneous
+            Method : - same as Hashmap...
+    */

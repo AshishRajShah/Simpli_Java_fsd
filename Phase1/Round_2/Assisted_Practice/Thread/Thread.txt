@@ -1,0 +1,8 @@
+/*   ----------------------------     Thread      --------------------- 
+ * 
+ *   > Implementation ways:
+ *           i. Thread (class)
+ *          ii. Runnable (Interface)
+ *
+ * 
+ */

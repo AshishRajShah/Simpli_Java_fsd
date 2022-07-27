@@ -1,6 +1,6 @@
-package Phase1.Assisted_Practice.AccessModifier.pkg2;
+package Phase1.Round_1.Assisted_Practice.AccessModifier.pkg2;
 
-import Phase1.Assisted_Practice.AccessModifier.pkg1.*;
+import Phase1.Round_1.Assisted_Practice.AccessModifier.pkg1.*;
 
 public class ModifierChck extends Modifier {
  
