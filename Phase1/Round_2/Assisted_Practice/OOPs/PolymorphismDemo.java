@@ -25,7 +25,7 @@ class OverloadingDemo {
 }
 
 // ------------
-//--------------------------------		Overloading		------------------------
+//--------------------------------		Overriding		------------------------
 class Human {
 	public void walk() {
 		System.out.println("Human can Walk...");
@@ -59,7 +59,7 @@ public class PolymorphismDemo {
 		
 //--------------------------			Overriding......
 		OverridingDemo od = new OverridingDemo();
-		System.out.println("\n-----------------------    Overloading   ---------------------");
+		System.out.println("\n-----------------------    Overriding   ---------------------");
 		od.walk();
 		
 
