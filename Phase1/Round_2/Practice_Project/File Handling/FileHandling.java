@@ -36,45 +36,44 @@ public class FileHandling {
 		String filePath = path + fileName;
 		File f = new File(filePath);
 
-        try {
-            if (f.createNewFile()) // it creates file if they r already not exist..
-            {
-                System.out.println("Your file " + f.getName() + " is succesfully created...");
-                try // create for FileWriter exception handling....
-                {
-                    FileWriter w = new FileWriter(f); // used to write a file..
-                    System.out.print("\nEnter the content : ");
-                    String text = sc.next();
-					text += sc.nextLine();
-
-                    w.write(text);
-                    w.close();
-                    System.out.println("\n - data successfully written in " + f.getName() + "....");
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } else
+		try {
+			if (f.createNewFile()) // it creates file if they r already not exist..
 			{
-                System.out.println("This \'"+f.getName()+"\' is a existed file...");
+				System.out.println("Your file " + f.getName() + " is succesfully created...");
 				try // create for FileWriter exception handling....
-                {
-                    FileWriter w = new FileWriter(f); // used to write a file..
-                    System.out.print("\nEnter the content : ");
-                    String text = sc.next();
+				{
+					FileWriter w = new FileWriter(f); // used to write a file..
+					System.out.print("\nEnter the content : ");
+					String text = sc.next();
 					text += sc.nextLine();
 
-                    w.write(text);
-                    w.close();
-                    System.out.println("\n - data successfully written in " + f.getName() + "....");
+					w.write(text);
+					w.close();
+					System.out.println("\n - data successfully written in " + f.getName() + "....");
 
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			} else {
+				System.out.println("This \'" + f.getName() + "\' is a existed file...");
+				try // create for FileWriter exception handling....
+				{
+					FileWriter w = new FileWriter(f); // used to write a file..
+					System.out.print("\nEnter the content : ");
+					String text = sc.next();
+					text += sc.nextLine();
+
+					w.write(text);
+					w.close();
+					System.out.println("\n - data successfully written in " + f.getName() + "....");
+
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 
