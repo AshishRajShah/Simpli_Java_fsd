@@ -1,0 +1,28 @@
+/*      -------------------         Exception Handling....
+ *  > Achieve :
+ *          1. try-catch block.. 
+ *          2. throws Exception...
+ *  1.  try- catch -finally :
+ *          > try     : if we found in the particular section error could be occured..
+ * 
+ *          > catch   : whatever error caughts in try block it catch that and display error.
+ * 
+ *          > finally : The main use of finally block is to close the connections.
+ *                  Even if you get an exception or not the LOC in the finally block gets executed.
+ *                          -   To execute finally block we need min one try block
+ *                          -   Without catch u can write a try block ..by using finally
+ *  2.  throws Exception...
+ *          > throws  : throw is used to define an exception statement..
+ *                    use: throws is used to remove the exception in a method and throw it out 
+ *                          of the program automatically.-UDE(user defined exception)
+ * 
+ *          >   Create UDE :
+ *                      -   Create a UDE class and extend it to the “Exception” Class...
+ *                      -   Create a constructor with the statement as the arg of the exception..
+ *                      -   Pass the statement to the super constructor of the exception so as to 
+ *                          link it to the super class Exception.
+ * 
+ *                  >   Exception statement is :
+ *                                  throw new UDEname(“statement”);
+ *  
+ */

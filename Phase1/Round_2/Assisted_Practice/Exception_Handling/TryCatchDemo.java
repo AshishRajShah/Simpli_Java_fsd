@@ -8,6 +8,9 @@ public class TryCatchDemo {
             System.out.println(a+"/"+b+" = "+c);
         } catch (Exception e) {
             System.err.println("Error : "+e);
+        }finally
+        {
+            System.out.println(" it will run always whether exception occure or not..");
         }
     }  
 }
