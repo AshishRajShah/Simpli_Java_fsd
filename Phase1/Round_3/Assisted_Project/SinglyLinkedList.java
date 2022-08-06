@@ -1,6 +1,7 @@
 package Assisted_Project;
 
 public class SinglyLinkedList {
+    Node head = null;
     class Node {
         String data;
         Node next;
@@ -11,7 +12,7 @@ public class SinglyLinkedList {
         }
     }
 
-    public Node head = null;
+    
 
     // addFirst....
     public void addFirst(String data) {

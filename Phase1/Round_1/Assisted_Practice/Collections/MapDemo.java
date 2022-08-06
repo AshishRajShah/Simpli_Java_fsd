@@ -1,4 +1,4 @@
-package Phase1.Round_1.Assisted_Practice.Collections;
+
 
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -89,8 +89,8 @@ public class MapDemo {
     public static void main(String[] args) {
         MapDemo md = new MapDemo();
         md.hashMap();
-        md.hashTable();
-        md.treeMap();
+        // md.hashTable();
+        // md.treeMap();
     }
 
 }

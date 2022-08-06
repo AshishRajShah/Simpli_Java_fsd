@@ -1,9 +1,11 @@
 {
     "java.project.sourcePaths": [
+        "Phase1/Round_4",
+        "Phase1/Round_3",
         "Phase1/Round_2/Practice_Project/File Handling",
-        "Phase1/File Project",
         "Phase1/Round_1/Practice_Project",
-        "Phase1\\Round_3",
-        "Phase1\\Round_4"
+        "Phase1/File Project",
+        "Phase1/Round_1/Assisted_Practice/Collections",
+        "Phase1\\Virtual Key for ur Repositories"
     ]
 }

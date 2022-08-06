@@ -1,5 +1,3 @@
-package Phase1.Round_1.Assisted_Practice.Collections;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
